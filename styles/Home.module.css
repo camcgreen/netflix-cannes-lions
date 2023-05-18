@@ -206,7 +206,8 @@
 
     .loop {
         width: auto;
-        height: 100svh;
+        /* height: 100svh; */
+        height: 100vh;
     }
 
     .cover h1 {
