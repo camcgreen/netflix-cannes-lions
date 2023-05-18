@@ -6,12 +6,26 @@ export default function Home() {
     useEffect(() => {
         const intro = document.getElementById('intro');
         const loop = document.getElementById('loop');
+        const onlyAt = document.getElementById('onlyAt');
+        const coming = document.getElementById('coming');
         if (intro && loop) {
             intro.play();
             setTimeout(() => {
                 intro.style.opacity = 0;
-                loop.style.opacity = 1;
             }, 2000);
+            setTimeout(() => {
+                loop.style.opacity = 1;
+            }, 5000);
+        }
+        if (onlyAt) {
+            setTimeout(() => {
+                onlyAt.style.opacity = 1;
+            }, 3000);
+        }
+        if (coming) {
+            setTimeout(() => {
+                coming.style.opacity = 1;
+            }, 4000);
         }
     }, []);
     return (
@@ -46,14 +60,26 @@ export default function Home() {
                 />
                 <div className={styles.bg}>
                     <div className={styles.cover}>
-                        <img src='/logo.svg' alt='' className={styles.logo} />
+                        <img
+                            src='/logo.svg'
+                            alt=''
+                            className={`${styles.logo} ${styles.hidden}`}
+                        />
+                        <p className={styles.onlyAt} id='onlyAt'>
+                            ONLY AT <strong>CANNES LIONS</strong>
+                        </p>
                         <div className={styles.title}>
                             <h1 className={styles.mainTitle}>
                                 Behind the Streams
                             </h1>
-                            <h3 className={styles.date}>20-22 June 2023</h3>
+                            <h3 className={`${styles.date} ${styles.hidden}`}>
+                                20-22 June 2023
+                            </h3>
                         </div>
-                        <div className={styles.foot}>
+                        <p className={styles.coming} id='coming'>
+                            COMING JUNE 20-22
+                        </p>
+                        <div className={`${styles.foot} ${styles.hidden}`}>
                             <h3 className={styles.cannesLions}>
                                 Netflix at Cannes Lions
                             </h3>
@@ -74,7 +100,10 @@ export default function Home() {
                             />
                         </div>
                     </div>
-                    <div className={styles.content} id='content'>
+                    <div
+                        className={`${styles.content} ${styles.hidden}`}
+                        id='content'
+                    >
                         <h4 className={styles.behindTheStreams}>
                             Behind the Streams
                         </h4>
@@ -93,13 +122,19 @@ export default function Home() {
                         <div className={styles.mapContainer}>
                             <img src='/map.png' alt='' className={styles.map} />
                         </div>
-                        <h4>Address:</h4>
-                        <p>
-                            Netflix Space on the Rooftop of the JW Marriott
-                            Cannes Theater Entrance, 3 Rue Frédéric Amouretti
-                            06400 Cannes
+                        <h4 className={styles.address}>Address:</h4>
+                        <p className={styles.thirdP}>
+                            <strong>
+                                Netflix Space on the Rooftop of the JW Marriott
+                                Cannes
+                            </strong>
+                            <br />
+                            Theater Entrance, 3 Rue Frédéric Amouretti 06400
+                            Cannes
                         </p>
-                        <p>Open for meetings daily by invite/request only</p>
+                        <p className={styles.fourthP}>
+                            Open for meetings daily by invite/request only
+                        </p>
                         <div className={styles.logos}>
                             <img src='/logo.svg' alt='' />
                             <img src='/cannes-lions-logo.png' alt='' />
